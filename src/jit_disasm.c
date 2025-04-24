@@ -99,11 +99,9 @@ void disasm_print_insn(unsigned char *image, ssize_t len, int opcodes,
 	assert(bfd_check_format(bfdf, bfd_object));
 
 	if (json_output)
-		init_disassemble_info(&info, stdout,
-				      (fprintf_ftype) fprintf_json);
+		init_disassemble_info(&info, stdout, (fprintf_ftype) fprintf_json);
 	else
-		init_disassemble_info(&info, stdout,
-				      (fprintf_ftype) fprintf);
+		init_disassemble_info(&info, stdout, (fprintf_ftype) fprintf);
 
 	/* Update architecture info for offload. */
 	if (arch) {
